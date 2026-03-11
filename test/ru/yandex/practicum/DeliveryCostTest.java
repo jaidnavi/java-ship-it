@@ -5,9 +5,9 @@ import ru.yandex.practicum.delivery.*;
 import org.junit.jupiter.api.Assertions;
 
 public class DeliveryCostTest {
-    StandardParcel standardParcel = new StandardParcel("description", 20, "deliveryAddress", 1);
-    PerishableParcel perishableParcel = new PerishableParcel("description", 20, "deliveryAddress", 1, 1);
-    FragileParcel fragileParcel = new FragileParcel("description", 10, "deliveryAddress", 1);
+    private final StandardParcel standardParcel = new StandardParcel("description", 20, "deliveryAddress", 1);
+    private final PerishableParcel perishableParcel = new PerishableParcel("description", 20, "deliveryAddress", 1, 1);
+    private final FragileParcel fragileParcel = new FragileParcel("description", 10, "deliveryAddress", 1);
 
     @Test
     public void shouldBePositiveStandardParcelDeliveryCost() {
@@ -44,6 +44,8 @@ public class DeliveryCostTest {
         ParcelBox<FragileParcel> fragileParcelBox = new ParcelBox<>(1000);
         fragileParcelBox.addParcel(fragileParcel);
         Assertions.assertEquals(1, fragileParcelBox.getParcelsCount());
+        fragileParcelBox.addParcel(fragileParcel);
+        Assertions.assertEquals(2, fragileParcelBox.getParcelsCount());
     }
 
     @Test

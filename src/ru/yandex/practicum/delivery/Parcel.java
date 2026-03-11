@@ -2,11 +2,6 @@ package ru.yandex.practicum.delivery;
 
 public abstract class Parcel {
     protected final String description;
-
-    public double getWeight() {
-        return weight;
-    }
-
     protected final double weight;
     private final String deliveryAddress;
     protected final int sendDay;
@@ -27,6 +22,10 @@ public abstract class Parcel {
     }
 
     public abstract double calculateDeliveryCost();
+
+    public double getWeight() {
+        return weight;
+    }
 
     @Override
     public String toString() {
